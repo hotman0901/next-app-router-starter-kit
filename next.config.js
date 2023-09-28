@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+
+const rewrites = async () => {
+  return [
+    {
+      source: '/api/proxy/:path*',
+      destination: 'https://jsonplaceholder.typicode.com/:path*',
+    },
+  ];
+};
+const nextConfig = {
+  rewrites
+}
 
 module.exports = nextConfig
