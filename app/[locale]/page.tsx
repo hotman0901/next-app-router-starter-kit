@@ -4,13 +4,34 @@ import { useBearStore } from '@/store/count';
 import Child from '@/components/Count';
 
 import { useAuthStore } from '@/store/auth';
+import axios, { AxiosError } from 'axios';
+import { useRouter } from 'next/navigation'
+
+
+import { API } from "@/constants";
 
 export default function Home() {
   const bears = useBearStore((state) => state.bears);
   const increase = useBearStore((state) => state.increase);
-
   const setAuth = useAuthStore((state) => state.setAuthentication);
   const isAuth = useAuthStore((state) => state.authenticated);
+  const { push } = useRouter()
+
+  const handleSubmit = async () => {
+    const payload = {
+      username: 'admin',
+      password: 'admin',
+    };
+
+    try {
+      const { data } = await axios.post(API.LOGIN, payload);
+      console.log(JSON.stringify(data));
+      push('/dashboard')
+    } catch (e) {
+      const error = e as AxiosError;
+      alert(error.message);
+    }
+  };
 
   return (
     <>
@@ -21,6 +42,7 @@ export default function Home() {
             <button onClick={() => increase()}>increase</button>
           </div>
         </div>
+        <button onClick={() => handleSubmit()}>login</button>
         <div>isAuth: {String(isAuth)}</div>
         <button onClick={() => setAuth(!isAuth)}>setAuth</button>
         <Child />
@@ -125,6 +147,5 @@ export default function Home() {
         </a>
       </div>
     </>
-    
   );
 }

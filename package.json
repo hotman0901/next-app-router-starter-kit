@@ -4,15 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "env-dev": "env-cmd -f .env.development next dev",
+    "env-local": "env-cmd -f .env.local next dev",
+    "env-prod": "env-cmd -f .env.production next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
+    "axios": "^1.5.1",
     "cookies-next": "^4.0.0",
     "jotai": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
     "next": "latest",
+    "next-client-cookies": "^1.0.3",
+    "next-international": "^1.0.1",
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "^8.1.2",
@@ -22,10 +29,12 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.3",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
+    "env-cmd": "^10.1.0",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-plugin-simple-import-sort": "^10.0.0",
