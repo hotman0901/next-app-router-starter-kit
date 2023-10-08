@@ -1,12 +1,13 @@
-import { COOKIE_NAME } from "@/constants";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
+import { COOKIES } from "@/constants";
+
 export async function GET() {
   const cookieStore = cookies();
 
-  const token = cookieStore.get(COOKIE_NAME);
+  const token = cookieStore.get(COOKIES.TOKEN);
 
   if (!token) {
     return NextResponse.json(

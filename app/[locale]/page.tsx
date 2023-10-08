@@ -1,14 +1,12 @@
 'use client';
-import Image from 'next/image';
-import { useBearStore } from '@/store/count';
-import Child from '@/components/Count';
-
-import { useAuthStore } from '@/store/auth';
 import axios, { AxiosError } from 'axios';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 
-
+import Child from '@/components/Count';
 import { API } from "@/constants";
+import { useAuthStore } from '@/store/auth';
+import { useBearStore } from '@/store/count';
 
 export default function Home() {
   const bears = useBearStore((state) => state.bears);

@@ -1,7 +1,8 @@
-import { COOKIE_NAME } from "@/constants";
 import { serialize } from "cookie";
 import { sign } from "jsonwebtoken";
 import { NextResponse } from "next/server";
+
+import { COOKIES } from "@/constants";
 
 const MAX_AGE = 60 * 60 * 24 * 30; // days;
 
@@ -36,8 +37,8 @@ export async function POST(request: Request) {
   );
 
   // 設置 cookies
-  const seralized = serialize(COOKIE_NAME, token, {
-    httpOnly: false, // 設定 true 就不能使 client 端取得
+  const seralized = serialize(COOKIES.TOKEN, token, {
+    httpOnly: true, // 設定 true 就不能使 client 端取得
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
     maxAge: MAX_AGE,

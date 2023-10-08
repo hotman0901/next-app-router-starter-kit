@@ -1,6 +1,4 @@
 import { create } from 'zustand'
-import { redux, devtools } from "zustand/middleware";
-
 
 interface BearState {
   bears: number,

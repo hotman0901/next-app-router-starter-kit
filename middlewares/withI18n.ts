@@ -3,12 +3,19 @@ import { createI18nMiddleware } from "next-international/middleware";
 
 const I18nMiddleware = createI18nMiddleware({
   locales: ["en", "fr"],
-  defaultLocale: "en"
+  defaultLocale: "en",
+  resolveLocaleFromRequest: request => {
+    // 如果 cookies 沒有才會 trigger 這個 function 直接塞 en
+    return 'en'
+  }
 });
 
 export default function withI18nMiddleware(middleware: NextMiddleware) {
   return async (request: NextRequest, event: NextFetchEvent) => {
-    return  I18nMiddleware(request);
+    // 如果要讓他 chain middleware 目前解法是把 i18n 放在最後一個，
+    // 或是把下面打開
+    // middleware(request, event)
+    return I18nMiddleware(request);
   }
 }
 
