@@ -28,7 +28,7 @@ export default function withAuth(middleware: NextMiddleware) {
     // const locale = cookieStore.get(COOKIES.LOCALE);
     // console.log('locale:', locale)
     const token = cookieStore.get(COOKIES.TOKEN);
-    console.log('token:', token?.value)
+    // console.log('token:', token?.value)
     // console.log('token:', token)
     // console.log('locale =>',  request.nextUrl['locale'])
     // console.log('locale =>',  request.nextUrl)
