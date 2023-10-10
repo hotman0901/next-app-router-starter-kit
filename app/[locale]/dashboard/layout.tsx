@@ -13,7 +13,7 @@ export default function SubLayout({
   params: { locale: string }
 }) {
   return (
-    <I18nProviderClient fallbackLocale={en}>
+    <I18nProviderClient locale={params.locale}>
       <div>123123</div>
       {children}
     </I18nProviderClient>

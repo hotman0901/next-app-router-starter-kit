@@ -17,6 +17,7 @@ import withLogger from '@/middlewares/withLogger';
 
 export default chain([withLogger, withAuth, withI18nMiddleware]);
 
+// 這幾個忽略
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

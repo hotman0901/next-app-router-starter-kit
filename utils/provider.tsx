@@ -6,12 +6,12 @@ import { useState } from 'react';
 
 
 // onblur 畫面不要觸發重新 call api
-// focusManager.setFocused(false);
+focusManager.setFocused(false);
 
 function Providers({ children }: React.PropsWithChildren) {
   const [client] = useState(
-    // new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
-    new QueryClient()
+    new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
+    // new QueryClient()
   );
   return (
     <QueryClientProvider client={client}>

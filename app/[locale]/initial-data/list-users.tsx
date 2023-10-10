@@ -1,15 +1,21 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect } from "react";
 
-import { User } from "./types";
+import { getUsers } from '@/apis/user'
+import { User } from "@/types/types";
+import request from '@/utils/request';
 
-async function getUsers() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = (await res.json()) as User[];
-  return users;
-}
+// async function getUsers() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
+//   const users = (await res.json()) as User[];
+
+//   const ff = await request('https://jsonplaceholder.typicode.com/users')
+//   console.log('ff:', ff.json())
+
+//   return users;
+// }
 
 export default function ListUsers({ users }: { users: User[] }) {
   const [count, setCount] = React.useState(0);
@@ -21,6 +27,7 @@ export default function ListUsers({ users }: { users: User[] }) {
     // staleTime: 0,
     initialData: users,
   });
+
   return (
     <main style={{ maxWidth: 1200, marginInline: "auto", padding: 20 }}>
       <div style={{ marginBottom: "4rem", textAlign: "center" }}>
