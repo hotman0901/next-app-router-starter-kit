@@ -1,7 +1,7 @@
-import { cookies } from "next/headers";
-import type { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server'
+import { cookies } from 'next/headers';
+import type { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server';
 
-import { COOKIES } from "@/constants";
+import { COOKIES } from '@/constants';
 
 // export default function middleware(req) {
 //   const token = req.cookies.token
@@ -39,5 +39,5 @@ export default function withAuth(middleware: NextMiddleware) {
     // console.log("path => ", request.nextUrl.pathname)
     // console.log('middleware1 =>', request.url)
     return middleware(request, event);
-  }
+  };
 }

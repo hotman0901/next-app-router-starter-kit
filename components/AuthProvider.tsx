@@ -18,7 +18,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
     } else {
       setAuthentication(false);
     }
-  }, [token]);
+  }, [token, setAuthentication]);
 
   // Rendering the layout with the Navbar, main content, and Footer components
   return <>{children}</>;
