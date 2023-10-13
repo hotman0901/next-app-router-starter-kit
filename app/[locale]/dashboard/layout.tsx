@@ -7,13 +7,13 @@ import { I18nProviderClient } from '@/locales/client'
 
 export default function SubLayout({
   children,
-  params
+  params: { locale = 'en' },
 }: {
   children: ReactElement
   params: { locale: string }
 }) {
   return (
-    <I18nProviderClient locale={params.locale}>
+    <I18nProviderClient locale={locale}>
       <div>123123</div>
       {children}
     </I18nProviderClient>
