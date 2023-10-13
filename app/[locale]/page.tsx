@@ -15,6 +15,9 @@ export default function Home() {
   const isAuth = useAuthStore((state) => state.authenticated);
   const { push } = useRouter()
 
+  const secret = process.env.NEXT_PUBLIC_JWT || "";
+  console.log('secret:', secret)
+
   const handleSubmit = async () => {
     const payload = {
       username: 'admin',
