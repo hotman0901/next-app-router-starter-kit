@@ -14,8 +14,9 @@ import { chain } from '@/middlewares/chain';
 import withAuth from '@/middlewares/withAuth';
 import withI18nMiddleware from '@/middlewares/withI18n';
 import withLogger from '@/middlewares/withLogger';
+import withPublicStatic from '@/middlewares/withPublic';
 
-export default chain([withLogger, withAuth, withI18nMiddleware]);
+export default chain([withPublicStatic, withLogger, withAuth, withI18nMiddleware]);
 
 // 這幾個忽略
 export const config = {
