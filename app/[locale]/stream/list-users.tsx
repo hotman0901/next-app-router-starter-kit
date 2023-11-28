@@ -1,6 +1,5 @@
 "use client";
-
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import Image from 'next/image'
 import React from "react";
 
@@ -14,10 +13,9 @@ async function getUsers() {
 
 export default function ListUsers() {
   const [count, setCount] = React.useState(0);
-  const { data } = useQuery<User[]>({
+  const { data } = useSuspenseQuery<User[]>({
     queryKey: ["users"],
     queryFn: () => getUsers(),
-    suspense: true,
     staleTime: 5 * 1000,
   });
 
