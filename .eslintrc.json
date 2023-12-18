@@ -4,6 +4,7 @@
   "rules": {
     "react-hooks/rules-of-hooks": 0,
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "react/no-unescaped-entities": 0
   }
 }
