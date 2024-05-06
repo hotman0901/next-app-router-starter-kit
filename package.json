@@ -20,10 +20,10 @@
   ],
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
-    "@tanstack/query-core": "^5.32.0",
-    "@tanstack/react-query": "^5.32.0",
-    "@tanstack/react-query-devtools": "^5.32.0",
-    "@tanstack/react-query-next-experimental": "^5.32.0",
+    "@tanstack/query-core": "^5.34.2",
+    "@tanstack/react-query": "^5.34.2",
+    "@tanstack/react-query-devtools": "^5.34.2",
+    "@tanstack/react-query-next-experimental": "^5.34.2",
     "axios": "^1.6.8",
     "cookies-next": "^4.1.1",
     "dayjs": "^1.11.11",
@@ -34,7 +34,7 @@
     "next-logger": "^4.0.0",
     "react": "latest",
     "react-dom": "latest",
-    "react-redux": "^9.1.1",
+    "react-redux": "^9.1.2",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
@@ -53,7 +53,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-simple-import-sort": "^12.1.0",
-    "pino": "^8.21.0",
+    "pino": "^9.0.0",
     "pino-http": "^9.0.0",
     "pino-pretty": "^11.0.0",
     "pino-smart": "^0.0.8",

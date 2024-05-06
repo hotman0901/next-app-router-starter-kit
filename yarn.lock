@@ -257,34 +257,34 @@
     "@swc/counter" "^0.1.3"
     tslib "^2.4.0"
 
-"@tanstack/query-core@5.32.0", "@tanstack/query-core@^5.32.0":
-  version "5.32.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.32.0.tgz#e097ec2b394a2f64de33c98cd8baf3525c99641a"
-  integrity sha512-Z3flEgCat55DRXU5UMwYU1U+DgFZKA3iufyOKs+II7iRAo0uXkeU7PH5e6sOH1CGEag0IpKmZxlUFpCg6roSKw==
+"@tanstack/query-core@5.34.2", "@tanstack/query-core@^5.34.2":
+  version "5.34.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-core/-/query-core-5.34.2.tgz#ccaafad3be1126966e0e2064ff4acbfccad7add0"
+  integrity sha512-FM1UXldYcoMiWmVbpewV14EVpnr/ETBbdF84tmCktx29e2bXBFhGtAfyDHUD4X1FehaV5tC9GkXZUMZRQV3lcA==
 
-"@tanstack/query-devtools@5.28.10":
-  version "5.28.10"
-  resolved "https://registry.yarnpkg.com/@tanstack/query-devtools/-/query-devtools-5.28.10.tgz#33e9a42dd2199fca12f0dd2d891570ecdbfd3c7b"
-  integrity sha512-5UN629fKa5/1K/2Pd26gaU7epxRrYiT1gy+V+pW5K6hnf1DeUKK3pANSb2eHKlecjIKIhTwyF7k9XdyE2gREvQ==
+"@tanstack/query-devtools@5.32.1":
+  version "5.32.1"
+  resolved "https://registry.yarnpkg.com/@tanstack/query-devtools/-/query-devtools-5.32.1.tgz#2c03f2fbe9162b650e697c469c8618c7a05d593f"
+  integrity sha512-7Xq57Ctopiy/4atpb0uNY5VRuCqRS/1fi/WBCKKX6jHMa6cCgDuV/AQuiwRXcKARbq2OkVAOrW2v4xK9nTbcCA==
 
-"@tanstack/react-query-devtools@^5.32.0":
-  version "5.32.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-5.32.0.tgz#a3e930b9b5cdb5e52215e1314d28a50202589e72"
-  integrity sha512-KWrzLoUjs9JtDSH3H2qbm5MjjykyAT8DkvP8tukw3gBG4ziu5WaWHciBjMsYSe1JB79AOxxGovzjW/Cd9+ofVw==
+"@tanstack/react-query-devtools@^5.34.2":
+  version "5.34.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-devtools/-/react-query-devtools-5.34.2.tgz#a9cec208d4540324b1216f5f16d7de2e69a79996"
+  integrity sha512-rf/LxJszATG9yDzKi1GYKGO2ODJi4rqrzM5Fs6tN06Hy5jtD8pQwXgCZz052d4J/avn/fyfvS2TRPbR5dOAk/g==
   dependencies:
-    "@tanstack/query-devtools" "5.28.10"
+    "@tanstack/query-devtools" "5.32.1"
 
-"@tanstack/react-query-next-experimental@^5.32.0":
-  version "5.32.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query-next-experimental/-/react-query-next-experimental-5.32.0.tgz#d551db92780bc3c345bcc3b3b8169d4dadefd8d5"
-  integrity sha512-qCroRXgyHu2vrxb/GFtgXTzARH8hhn1KnC4sO/F1oZePStQQS5Yar+qZ42bukypB1vitIVnUL0SOqymr8G04Fg==
+"@tanstack/react-query-next-experimental@^5.34.2":
+  version "5.34.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query-next-experimental/-/react-query-next-experimental-5.34.2.tgz#bbd2446a9aa8fc2e1abbb585c80aa284731afdfb"
+  integrity sha512-73k16l0ee8Tmfwra1YDQFOBK6Qpk0lzkBkQZZ9vsQiWdb9o252n7YR/J20v7Z9oQdlErvqpOM1hOa5O8YpxJdg==
 
-"@tanstack/react-query@^5.32.0":
-  version "5.32.0"
-  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.32.0.tgz#52d441e7ad2a0098dc426f3834f68150c13f265b"
-  integrity sha512-+E3UudQtarnx9A6xhpgMZapyF+aJfNBGFMgI459FnduEZqT/9KhOWnMOneZahLRt52yzskSA0AuOyLkXHK0yBA==
+"@tanstack/react-query@^5.34.2":
+  version "5.34.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-query/-/react-query-5.34.2.tgz#673cebb16c1ddd44277a968c5aeb3a2ac76f9598"
+  integrity sha512-5L9W9XQ/lRcyhlVN0xrOkPZE9PJxZWw7BdJR244j3G7sxMfSreZWvxx13DJt08M5DWn9B5VstpKgqpIIQOIJKA==
   dependencies:
-    "@tanstack/query-core" "5.32.0"
+    "@tanstack/query-core" "5.34.2"
 
 "@types/cookie@^0.6.0":
   version "0.6.0"
@@ -3342,10 +3342,10 @@ pino@^8.11.0, pino@^8.17.1:
     sonic-boom "^3.7.0"
     thread-stream "^2.0.0"
 
-pino@^8.21.0:
-  version "8.21.0"
-  resolved "https://registry.yarnpkg.com/pino/-/pino-8.21.0.tgz#e1207f3675a2722940d62da79a7a55a98409f00d"
-  integrity sha512-ip4qdzjkAyDDZklUaZkcRFb2iA118H9SgRh8yzTkSQK8HilsOJF7rSY8HoW5+I0M46AZgX/pxbprf2vvzQCE0Q==
+pino@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-9.0.0.tgz#25fddb6f449032afcc8c939c2234d4a24b9129a6"
+  integrity sha512-uI1ThkzTShNSwvsUM6b4ND8ANzWURk9zTELMztFkmnCQeR/4wkomJ+echHee5GMWGovoSfjwdeu80DsFIt7mbA==
   dependencies:
     atomic-sleep "^1.0.0"
     fast-redact "^3.1.1"
@@ -3537,10 +3537,10 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-redux@^9.1.1:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-9.1.1.tgz#852ec13084bd7375e26db697d2fc9027ffada204"
-  integrity sha512-5ynfGDzxxsoV73+4czQM56qF43vsmgJsO22rmAvU5tZT2z5Xow/A2uhhxwXuGTxgdReF3zcp7A80gma2onRs1A==
+react-redux@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-9.1.2.tgz#deba38c64c3403e9abd0c3fbeab69ffd9d8a7e4b"
+  integrity sha512-0OA4dhM1W48l3uzmv6B7TXPCGmokUU4p1M44DGN2/D9a1FjVPukVjER1PcPX97jIg6aUeLq1XJo1IpfbgULn0w==
   dependencies:
     "@types/use-sync-external-store" "^0.0.3"
     use-sync-external-store "^1.0.0"
