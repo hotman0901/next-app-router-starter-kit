@@ -1,5 +1,5 @@
 'use client';
-import { getCookie, setCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import { useEffect } from 'react';
 
 import { COOKIES } from '@/constants';

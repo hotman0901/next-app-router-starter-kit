@@ -1,6 +1,6 @@
 import { getUsers } from '@/apis/user'
-import { User } from "@/types/types";
 
+// import { User } from "@/types/types";
 import ListUsers from "./list-users";
 
 // async function getUsers() {

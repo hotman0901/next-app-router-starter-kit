@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { headers } from 'next/headers'
 
 export async function GET(request: Request) {
-  const headersList = headers()
+  const headersList = await headers()
   const referer = headersList.get('referer')
 
   console.log('EEEEEEE')
@@ -12,7 +13,7 @@ export async function GET(request: Request) {
 
 
 export async function POST(request: Request) {
-  const headersList = headers()
+  const headersList = await headers()
   const referer = headersList.get('referer')
 
   console.log('EEEEEEE')

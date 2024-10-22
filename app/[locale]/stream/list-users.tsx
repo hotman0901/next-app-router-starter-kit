@@ -12,6 +12,7 @@ async function getUsers() {
 }
 
 export default function ListUsers() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [count, setCount] = React.useState(0);
   const { data } = useSuspenseQuery<User[]>({
     queryKey: ["users"],

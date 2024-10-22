@@ -7,7 +7,7 @@ import { COOKIES } from "@/constants";
 export async function GET() {
   const cookieStore = cookies();
 
-  const token = cookieStore.get(COOKIES.TOKEN);
+  const token = (await cookieStore)?.get(COOKIES.TOKEN);
 
   if (!token) {
     return NextResponse.json(
@@ -35,14 +35,20 @@ export async function GET() {
     return new Response(JSON.stringify(response), {
       status: 200,
     });
-  } catch (e) {
-    return NextResponse.json(
-      {
-        message: "Something went wrong",
-      },
-      {
-        status: 400,
-      }
-    );
+  } catch (error) {
+    if (error instanceof Error) {
+      // 只有在 error 是 JS Error 物件時才會執行
+      console.error(error.message);
+      
+      return NextResponse.json(
+        {
+          message: "Something went wrong",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+
   }
 }
