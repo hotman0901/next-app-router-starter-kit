@@ -1,5 +1,5 @@
 'use client';
-import { ReactNode } from 'react';
+import { ReactNode, use } from 'react';
 
 import { I18nProviderClient } from '@/locales/client';
 
@@ -9,9 +9,13 @@ export default function SubLayout(o: {
   params: any;
 }) {
   const { children, params } = o;
-  const ln = params?.locale || 'en';
+  // const ln = params?.locale || 'en';
+
+  const c: { locale: string} = use(params)
+  const { locale = 'en' } = c
+
   return (
-    <I18nProviderClient locale={ln}>
+    <I18nProviderClient locale={locale}>
       <div>123123</div>
       {children}
     </I18nProviderClient>
