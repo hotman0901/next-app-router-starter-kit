@@ -30,6 +30,8 @@ export default [
       'simple-import-sort/exports': 'error',
       'react/no-unescaped-entities': 0,
       '@typescript-eslint/no-explicit-any': 'error',
+      'no-console': 1,
+      'comma-dangle': 0,
       quotes: [
         2,
         'single',
