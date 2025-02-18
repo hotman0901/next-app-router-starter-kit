@@ -8,8 +8,6 @@ import js from '@eslint/js';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import tseslint from 'typescript-eslint';
 
-
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
@@ -20,6 +18,7 @@ const compat = new FlatCompat({
 
 export default [
   ...compat.extends('next/core-web-vitals'),
+  ...compat.extends('prettier'),
   ...tseslint.configs.recommended,
   {
     plugins: {
@@ -30,7 +29,15 @@ export default [
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
       'react/no-unescaped-entities': 0,
-      "@typescript-eslint/no-explicit-any": "error"
+      '@typescript-eslint/no-explicit-any': 'error',
+      quotes: [
+        2,
+        'single',
+        {
+          avoidEscape: true,
+          allowTemplateLiterals: true,
+        },
+      ],
     },
   },
 ];

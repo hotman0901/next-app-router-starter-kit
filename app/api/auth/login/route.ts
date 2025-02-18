@@ -1,8 +1,8 @@
-import { serialize } from "cookie";
-import { sign } from "jsonwebtoken";
-import { NextResponse } from "next/server";
+import { serialize } from 'cookie';
+import { sign } from 'jsonwebtoken';
+import { NextResponse } from 'next/server';
 
-import { COOKIES } from "@/constants";
+import { COOKIES } from '@/constants';
 
 const MAX_AGE = 60 * 60 * 24 * 30; // days;
 
@@ -11,10 +11,10 @@ export async function POST(request: Request) {
 
   const { username, password } = body;
 
-  if (username !== "admin" || password !== "admin") {
+  if (username !== 'admin' || password !== 'admin') {
     return NextResponse.json(
       {
-        message: "Unauthorized",
+        message: 'Unauthorized',
       },
       {
         status: 401,
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
   }
 
   // Always check this
-  const secret = process.env.JWT_SECRET || "";
+  const secret = process.env.JWT_SECRET || '';
   console.log('secret:', secret)
 
   const token = sign(
@@ -39,18 +39,18 @@ export async function POST(request: Request) {
   // 設置 cookies
   const seralized = serialize(COOKIES.TOKEN, token, {
     httpOnly: true, // 設定 true 就不能使 client 端取得
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
     maxAge: MAX_AGE,
-    path: "/",
+    path: '/',
   });
 
   const response = {
-    message: "Authenticated!",
+    message: 'Authenticated!',
   };
 
   return new Response(JSON.stringify(response), {
     status: 200,
-    headers: { "Set-Cookie": seralized },
+    headers: { 'Set-Cookie': seralized },
   });
 }

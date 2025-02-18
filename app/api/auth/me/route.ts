@@ -1,8 +1,8 @@
-import { verify } from "jsonwebtoken";
-import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { verify } from 'jsonwebtoken';
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
-import { COOKIES } from "@/constants";
+import { COOKIES } from '@/constants';
 
 export async function GET() {
   const cookieStore = cookies();
@@ -12,7 +12,7 @@ export async function GET() {
   if (!token) {
     return NextResponse.json(
       {
-        message: "Unauthorized",
+        message: 'Unauthorized',
       },
       {
         status: 401,
@@ -23,13 +23,13 @@ export async function GET() {
   const { value } = token;
 
   // Always check this
-  const secret = process.env.JWT_SECRET || "";
+  const secret = process.env.JWT_SECRET || '';
 
   try {
     verify(value, secret);
 
     const response = {
-      user: "Super Top Secret User",
+      user: 'Super Top Secret User',
     };
 
     return new Response(JSON.stringify(response), {
@@ -42,7 +42,7 @@ export async function GET() {
       
       return NextResponse.json(
         {
-          message: "Something went wrong",
+          message: 'Something went wrong',
         },
         {
           status: 400,
