@@ -16,7 +16,7 @@ export default function Home() {
   const { push } = useRouter()
 
   const secret = process.env.NEXT_PUBLIC_JWT || '';
-  console.log('secret:', secret)
+  console.log('home secret:', secret)
 
   const handleSubmit = async () => {
     const payload = {
