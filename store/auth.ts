@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // Importing create function from the Zustand library
-import { create } from "zustand";
+import { create } from 'zustand';
 
 // Defining an interface for the store's state
 interface AuthStoreInterface {
