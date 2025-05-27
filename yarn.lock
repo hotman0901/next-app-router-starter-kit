@@ -788,10 +788,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:5.76.0, @tanstack/query-core@npm:^5.76.0":
-  version: 5.76.0
-  resolution: "@tanstack/query-core@npm:5.76.0"
-  checksum: 10c0/970cc783838bf7e30acbad476c72e4bb3b302c15525152cfcf5ffef8b185537e780b608e3f77793cb355b49cc98a9de597d978d400df44dbd550cba78742d67c
+"@tanstack/query-core@npm:5.77.2, @tanstack/query-core@npm:^5.77.2":
+  version: 5.77.2
+  resolution: "@tanstack/query-core@npm:5.77.2"
+  checksum: 10c0/2c83a23f61443de054250f35f596345d0ed4731b2bf4218f2acbef224255d0d9a1e41547e56ec58db4da5a97942cdd829c5d7c3906fc4a23857dd16f4d4608de
   languageName: node
   linkType: hard
 
@@ -802,37 +802,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-devtools@npm:^5.76.1":
-  version: 5.76.1
-  resolution: "@tanstack/react-query-devtools@npm:5.76.1"
+"@tanstack/react-query-devtools@npm:^5.77.2":
+  version: 5.77.2
+  resolution: "@tanstack/react-query-devtools@npm:5.77.2"
   dependencies:
     "@tanstack/query-devtools": "npm:5.76.0"
   peerDependencies:
-    "@tanstack/react-query": ^5.76.1
+    "@tanstack/react-query": ^5.77.2
     react: ^18 || ^19
-  checksum: 10c0/f15e462493c96fce50de7852358c1d2865bbfee59de4eff6b124e06c3afabfda05df121229e22f4e25014163edddb3492901d1302485268847ed2eabe26f5f2a
+  checksum: 10c0/2a3b3dd55c5dc2fbe631acd79c86e152c7cec202dcd3d2f9a870febd156d1e652c2f824677b5a15d544eba6ec1c95e4b61e3744f4dbd7b6bf6b9810b5e0a05ab
   languageName: node
   linkType: hard
 
-"@tanstack/react-query-next-experimental@npm:^5.76.1":
-  version: 5.76.1
-  resolution: "@tanstack/react-query-next-experimental@npm:5.76.1"
+"@tanstack/react-query-next-experimental@npm:^5.77.2":
+  version: 5.77.2
+  resolution: "@tanstack/react-query-next-experimental@npm:5.77.2"
   peerDependencies:
-    "@tanstack/react-query": ^5.76.1
+    "@tanstack/react-query": ^5.77.2
     next: ^13 || ^14 || ^15
     react: ^18 || ^19
-  checksum: 10c0/c46d73bf288e07007405bc6e0048647dc8a9521d4c914e24d97b1d43cfcf43550deba73855ebd36be8de5b3dbf4a900d8c7a2755de1dbfea221efcd494ed9987
+  checksum: 10c0/784c801b6c47643ff250498dd0fb186aeb7848b607e71a95552c261a57d1c3a41ece1d1fe5195bd7373d1f7f66bae7c48097c18fcecc7c5822a43063a25781b8
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^5.76.1":
-  version: 5.76.1
-  resolution: "@tanstack/react-query@npm:5.76.1"
+"@tanstack/react-query@npm:^5.77.2":
+  version: 5.77.2
+  resolution: "@tanstack/react-query@npm:5.77.2"
   dependencies:
-    "@tanstack/query-core": "npm:5.76.0"
+    "@tanstack/query-core": "npm:5.77.2"
   peerDependencies:
     react: ^18 || ^19
-  checksum: 10c0/35757f185ccd577e0763b18c2e29db621b40fb85419507d43a2a136fd47d8a4410f219fa9697142f7199577cc42c23dd117021cc8c072545eca133d5114148d9
+  checksum: 10c0/949d866ca8e1264ab506c7ac5ae11a596103a2f0c5cbf46022a22d256951791e330a8f126011cc6a73831514f889b87de11063d04f14014038375ae5a7ad3556
   languageName: node
   linkType: hard
 
@@ -2122,15 +2122,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookies-next@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "cookies-next@npm:5.1.0"
+"cookies-next@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "cookies-next@npm:6.0.0"
   dependencies:
     cookie: "npm:^1.0.1"
   peerDependencies:
     next: ">=15.0.0"
     react: ">= 16.8.0"
-  checksum: 10c0/0769e18dcaa2d9b4c51593014a8a7e360dbe809c54fdfc61310b8b53edd670ee6bdf01593067dcf81760827956cb17c07786efe22bb3d94b23e0dd388457fddb
+  checksum: 10c0/f00623292d9f383e9ce02c39a0776c84efeffc934f99ecf604ce4d4d5805fe917ba315c4feae19bc354a78138f10b16adcf14886bccdd474039b725f5a64fd11
   languageName: node
   linkType: hard
 
@@ -2266,6 +2266,18 @@ __metadata:
     supports-color:
       optional: true
   checksum: 10c0/db94f1a182bf886f57b4755f85b3a74c39b5114b9377b7ab375dc2cfa3454f09490cc6c30f829df3fc8042bc8b8995f6567ce5cd96f3bc3688bd24027197d9de
+  languageName: node
+  linkType: hard
+
+"debug@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "debug@npm:4.4.1"
+  dependencies:
+    ms: "npm:^2.1.3"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10c0/d2b44bc1afd912b49bb7ebb0d50a860dc93a4dd7d946e8de94abc957bb63726b7dd5aa48c18c2386c379ec024c46692e15ed3ed97d481729f929201e671fcd55
   languageName: node
   linkType: hard
 
@@ -2653,6 +2665,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-import-context@npm:^0.1.5":
+  version: 0.1.6
+  resolution: "eslint-import-context@npm:0.1.6"
+  dependencies:
+    get-tsconfig: "npm:^4.10.1"
+    stable-hash: "npm:^0.0.5"
+  peerDependencies:
+    unrs-resolver: ^1.0.0
+  peerDependenciesMeta:
+    unrs-resolver:
+      optional: true
+  checksum: 10c0/e0b1603c0b02d2be7da70e61bf918cda01314e27e38c11aad1c08dbbf5ab6b0ccfe588851574cad336bda859e35efeecc9205a06fc3b1ab8f65e74732ef075b4
+  languageName: node
+  linkType: hard
+
 "eslint-import-resolver-node@npm:^0.3.6, eslint-import-resolver-node@npm:^0.3.9":
   version: 0.3.9
   resolution: "eslint-import-resolver-node@npm:0.3.9"
@@ -2688,16 +2715,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-import-resolver-typescript@npm:^4.3.5":
-  version: 4.3.5
-  resolution: "eslint-import-resolver-typescript@npm:4.3.5"
+"eslint-import-resolver-typescript@npm:^4.4.1":
+  version: 4.4.1
+  resolution: "eslint-import-resolver-typescript@npm:4.4.1"
   dependencies:
-    debug: "npm:^4.4.0"
-    get-tsconfig: "npm:^4.10.0"
+    debug: "npm:^4.4.1"
+    eslint-import-context: "npm:^0.1.5"
+    get-tsconfig: "npm:^4.10.1"
     is-bun-module: "npm:^2.0.0"
     stable-hash: "npm:^0.0.5"
-    tinyglobby: "npm:^0.2.13"
-    unrs-resolver: "npm:^1.6.3"
+    tinyglobby: "npm:^0.2.14"
+    unrs-resolver: "npm:^1.7.2"
   peerDependencies:
     eslint: "*"
     eslint-plugin-import: "*"
@@ -2707,7 +2735,7 @@ __metadata:
       optional: true
     eslint-plugin-import-x:
       optional: true
-  checksum: 10c0/cc8f6e858b45d3a261dce4fec250a82f07c7356784ac8234cda9706386408a96c767599f2d0b9b84492bc79bed0eb24f6f376825662b8c4c66397738b5acba67
+  checksum: 10c0/a03df85e4e7136e3ae36842a417a1a91f74054d999f32e9a40a2ea732c541be522d1382e18ace0e8c26e0505868f12a5de4a6b978d73ea91ca21d314f0f01f30
   languageName: node
   linkType: hard
 
@@ -3287,6 +3315,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-tsconfig@npm:^4.10.1":
+  version: 4.10.1
+  resolution: "get-tsconfig@npm:4.10.1"
+  dependencies:
+    resolve-pkg-maps: "npm:^1.0.0"
+  checksum: 10c0/7f8e3dabc6a49b747920a800fb88e1952fef871cdf51b79e98db48275a5de6cdaf499c55ee67df5fa6fe7ce65f0063e26de0f2e53049b408c585aa74d39ffa21
+  languageName: node
+  linkType: hard
+
 "git-raw-commits@npm:^2.0.8":
   version: 2.0.11
   resolution: "git-raw-commits@npm:2.0.11"
@@ -3358,10 +3395,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.1.0":
-  version: 16.1.0
-  resolution: "globals@npm:16.1.0"
-  checksum: 10c0/51df6319b5b9e679338baf058ecf1125af0d3148b97e57592deabd65fca5c5dcdcca321d7589282bd6afbea9f5a40bc7329c746f46d56780813d7d1c457209a2
+"globals@npm:^16.2.0":
+  version: 16.2.0
+  resolution: "globals@npm:16.2.0"
+  checksum: 10c0/c2b3ea163faa6f8a38076b471b12f4bda891f7df7f7d2e8294fb4801d735a51a73431bf4c1696c5bf5dbca5e0a0db894698acfcbd3068730c6b12eef185dea25
   languageName: node
   linkType: hard
 
@@ -4627,10 +4664,10 @@ __metadata:
     "@eslint/js": "npm:^9.27.0"
     "@reduxjs/toolkit": "npm:^2.8.2"
     "@tailwindcss/postcss": "npm:^4.1.7"
-    "@tanstack/query-core": "npm:^5.76.0"
-    "@tanstack/react-query": "npm:^5.76.1"
-    "@tanstack/react-query-devtools": "npm:^5.76.1"
-    "@tanstack/react-query-next-experimental": "npm:^5.76.1"
+    "@tanstack/query-core": "npm:^5.77.2"
+    "@tanstack/react-query": "npm:^5.77.2"
+    "@tanstack/react-query-devtools": "npm:^5.77.2"
+    "@tanstack/react-query-next-experimental": "npm:^5.77.2"
     "@types/cookie": "npm:^1.0.0"
     "@types/jsonwebtoken": "npm:^9.0.9"
     "@types/node": "npm:^22.15.21"
@@ -4641,18 +4678,18 @@ __metadata:
     autoprefixer: "npm:^10.4.21"
     axios: "npm:^1.9.0"
     cookies: "npm:^0.9.1"
-    cookies-next: "npm:^5.1.0"
+    cookies-next: "npm:^6.0.0"
     dayjs: "npm:^1.11.13"
     env-cmd: "npm:^10.1.0"
     eslint: "npm:^9.27.0"
     eslint-config-next: "npm:^15.3.2"
     eslint-config-prettier: "npm:^10.1.5"
-    eslint-import-resolver-typescript: "npm:^4.3.5"
+    eslint-import-resolver-typescript: "npm:^4.4.1"
     eslint-plugin-import: "npm:^2.31.0"
     eslint-plugin-prettier: "npm:^5.4.0"
     eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-simple-import-sort: "npm:^12.1.1"
-    globals: "npm:^16.1.0"
+    globals: "npm:^16.2.0"
     jsonwebtoken: "npm:^9.0.2"
     next: "npm:^15.3.2"
     next-client-cookies: "npm:^2.1.0"
@@ -6374,6 +6411,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tinyglobby@npm:^0.2.14":
+  version: 0.2.14
+  resolution: "tinyglobby@npm:0.2.14"
+  dependencies:
+    fdir: "npm:^6.4.4"
+    picomatch: "npm:^4.0.2"
+  checksum: 10c0/f789ed6c924287a9b7d3612056ed0cda67306cd2c80c249fd280cf1504742b12583a2089b61f4abbd24605f390809017240e250241f09938054c9b363e51c0a6
+  languageName: node
+  linkType: hard
+
 "to-regex-range@npm:^5.0.1":
   version: 5.0.1
   resolution: "to-regex-range@npm:5.0.1"
@@ -6577,7 +6624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unrs-resolver@npm:^1.6.2, unrs-resolver@npm:^1.6.3":
+"unrs-resolver@npm:^1.6.2, unrs-resolver@npm:^1.7.2":
   version: 1.7.2
   resolution: "unrs-resolver@npm:1.7.2"
   dependencies:
