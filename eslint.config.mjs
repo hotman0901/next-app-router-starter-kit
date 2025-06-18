@@ -17,18 +17,25 @@ const compat = new FlatCompat({
 });
 
 export default [
-  ...compat.extends('next/core-web-vitals'),
-  ...compat.extends('prettier'),
+  // ...compat.extends('next/core-web-vitals'),
+  // ...compat.extends('prettier', 'next'),
   ...tseslint.configs.recommended,
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
     },
+    // rules: {
+      
+    // },
+  },
+  ...compat.config({
+    extends: ['eslint:recommended', 'next', 'prettier', 'next/typescript', 'next/core-web-vitals'],
     rules: {
+      'react/no-unescaped-entities': 'off',
+      '@next/next/no-page-custom-font': 'off',
       'react-hooks/rules-of-hooks': 0,
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
-      'react/no-unescaped-entities': 0,
       '@typescript-eslint/no-explicit-any': 'error',
       'no-console': 1,
       'comma-dangle': 0,
@@ -41,5 +48,5 @@ export default [
         },
       ],
     },
-  },
+  })
 ];

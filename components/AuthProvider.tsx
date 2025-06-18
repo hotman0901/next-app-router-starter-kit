@@ -1,6 +1,6 @@
 'use client';
 import { getCookie } from 'cookies-next';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { COOKIES } from '@/constants';
 import { useAuthStore } from '@/store/auth';
