@@ -1,11 +1,9 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
-export default function SubLayout(o: {
-  children: ReactElement;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: Promise<{ locale: any }>;
-}) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { children, params } = o;
+type Props = {
+  children: ReactNode;
+};
+
+export default function SubLayout({ children }: Props) {
   return <div>{children}</div>;
 }
