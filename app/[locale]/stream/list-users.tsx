@@ -1,13 +1,13 @@
 'use client';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import Image from 'next/image'
+import Image from 'next/image';
 import React from 'react';
 
-import { User } from './types';
+import type { User } from './types';
 
 async function getUsers() {
   return (await fetch('https://jsonplaceholder.typicode.com/users').then(
-    (res) => res.json()
+    (res) => res.json(),
   )) as User[];
 }
 

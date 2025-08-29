@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/** biome-ignore-all lint/suspicious/noExplicitAny: <ignore> */
 // Importing create function from the Zustand library
 import { create } from 'zustand';
 

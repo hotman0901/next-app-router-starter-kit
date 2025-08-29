@@ -18,13 +18,13 @@ export async function POST(request: Request) {
       },
       {
         status: 401,
-      }
+      },
     );
   }
 
   // Always check this
   const secret = process.env.JWT_SECRET || '';
-  console.log('secret:', secret)
+  console.log('secret:', secret);
 
   const token = sign(
     {
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     secret,
     {
       expiresIn: MAX_AGE,
-    }
+    },
   );
 
   // 設置 cookies

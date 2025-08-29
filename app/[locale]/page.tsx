@@ -1,7 +1,8 @@
 'use client';
+
 import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 import Child from '@/components/Count';
 import { API } from '@/constants';
@@ -13,10 +14,10 @@ export default function Home() {
   const increase = useBearStore((state) => state.increase);
   const setAuth = useAuthStore((state) => state.setAuthentication);
   const isAuth = useAuthStore((state) => state.authenticated);
-  const { push } = useRouter()
+  const { push } = useRouter();
 
   const secret = process.env.NEXT_PUBLIC_JWT || '';
-  console.log('home secret:', secret)
+  console.log('home secret:', secret);
 
   const handleSubmit = async () => {
     const payload = {
@@ -27,7 +28,7 @@ export default function Home() {
     try {
       const { data } = await axios.post(API.LOGIN, payload);
       console.log(JSON.stringify(data));
-      push('/dashboard')
+      push('/dashboard');
     } catch (e) {
       const error = e as AxiosError;
       alert(error.message);

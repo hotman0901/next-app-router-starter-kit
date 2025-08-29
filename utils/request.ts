@@ -1,4 +1,6 @@
 // 之後如果要統一 base url
+/** biome-ignore-all lint/complexity/noUselessUndefinedInitialization: <ingore> */
+/** biome-ignore-all lint/suspicious/noExplicitAny: <ingore> */
 let baseURL =
   process?.env?.BASE_API?.indexOf('http') !== -1
     ? process?.env?.BASE_API
@@ -28,7 +30,7 @@ const isPlainObject = function isPlainObject(obj: any) {
   if (!obj || typeof obj !== 'object') return false;
   proto = Object.getPrototypeOf(obj);
   if (!proto) return true;
-  Ctor = proto.hasOwnProperty('constructor') && proto.constructor;
+  Ctor = Object.hasOwn(proto, 'constructor') && proto.constructor;
   return typeof Ctor === 'function' && Ctor === Object; //构造函数是Object
 };
 
@@ -40,6 +42,7 @@ const request = function request(url: string, config?: any) {
   let onError = () => {};
 
   // 合并配置项{不要去更改initial中的内容}
+  // biome-ignore lint/suspicious/noAssignInExpressions: <reason for ignoring>
   config = config === null || typeof config !== 'object' ? (config = {}) : null; //确保config肯定是对象
 
   if (config?.onSuccess) {

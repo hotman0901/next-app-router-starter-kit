@@ -5,14 +5,14 @@ import { I18nProviderClient } from '@/locales/client';
 
 export default function SubLayout(o: {
   children: ReactNode;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: <reason for ignoring>
   params: any;
 }) {
   const { children, params } = o;
   // const ln = params?.locale || 'en';
 
-  const c: { locale: string} = use(params)
-  const { locale = 'en' } = c
+  const c: { locale: string } = use(params);
+  const { locale = 'en' } = c;
 
   return (
     <I18nProviderClient locale={locale}>
