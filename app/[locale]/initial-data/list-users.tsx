@@ -6,7 +6,7 @@ import React from 'react';
 
 import { getUsers } from '@/apis/user';
 import { User } from '@/types/types';
-import request from '@/utils/request';
+// import request from '@/utils/request';
 
 // async function getUsers() {
 //   const res = await fetch("https://jsonplaceholder.typicode.com/users");

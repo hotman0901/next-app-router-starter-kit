@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <div style={{ marginBottom: "4rem", textAlign: "center" }}>
+    <div style={{ marginBottom: '4rem', textAlign: 'center' }}>
       <h4 style={{ marginBottom: 16 }}>{count}</h4>
       <button onClick={() => setCount((prev) => prev + 1)}>increment</button>
       <button

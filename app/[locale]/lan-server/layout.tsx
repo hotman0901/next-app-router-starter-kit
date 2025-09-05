@@ -1,10 +1,9 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
-export default function SubLayout({
-  children,
-}: {
-  children: ReactElement;
-  params: { locale: string };
-}) {
+type Props = {
+  children: ReactNode;
+};
+
+export default function SubLayout({ children }: Props) {
   return <div>{children}</div>;
 }

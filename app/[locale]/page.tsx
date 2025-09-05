@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 
 import Child from '@/components/Count';
-import { API } from "@/constants";
+import { API } from '@/constants';
 import { useAuthStore } from '@/store/auth';
 import { useBearStore } from '@/store/count';
 
@@ -15,8 +15,8 @@ export default function Home() {
   const isAuth = useAuthStore((state) => state.authenticated);
   const { push } = useRouter()
 
-  const secret = process.env.NEXT_PUBLIC_JWT || "";
-  console.log('secret:', secret)
+  const secret = process.env.NEXT_PUBLIC_JWT || '';
+  console.log('home secret:', secret)
 
   const handleSubmit = async () => {
     const payload = {

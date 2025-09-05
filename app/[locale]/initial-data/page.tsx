@@ -1,7 +1,7 @@
-import { getUsers } from '@/apis/user'
-import { User } from "@/types/types";
+import { getUsers } from '@/apis/user';
 
-import ListUsers from "./list-users";
+// import { User } from "@/types/types";
+import ListUsers from './list-users';
 
 // async function getUsers() {
 //   const res = await fetch("https://jsonplaceholder.typicode.com/users");

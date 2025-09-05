@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // Importing create function from the Zustand library
 import { create } from 'zustand';
 
@@ -13,6 +14,7 @@ interface AuthStoreInterface {
 export const useAuthStore = create<AuthStoreInterface>((set) => ({
   authenticated: false, // initial value of authenticated property
   user: {}, // initial value of user property
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setAuthentication: (val) => set((state) => ({ authenticated: val })), // function to set the authentication status
   setUser: (user) => set({ user }), // function to set user information
 }));
