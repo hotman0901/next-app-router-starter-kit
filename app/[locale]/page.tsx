@@ -3,11 +3,20 @@
 import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { styled } from 'next-yak';
 
 import Child from '@/components/Count';
 import { API } from '@/constants';
 import { useAuthStore } from '@/store/auth';
 import { useBearStore } from '@/store/count';
+
+const StyledButton = styled.button`
+  color: #333;
+  padding: 16px;
+  background-color: #a8b36c;
+  cursor: pointer;
+  margin: 10px;
+`;
 
 export default function Home() {
   const bears = useBearStore((state) => state.bears);
@@ -17,7 +26,6 @@ export default function Home() {
   const { push } = useRouter();
 
   const secret = process.env.NEXT_PUBLIC_JWT || '';
-  console.log('home secret:', secret);
 
   const handleSubmit = async () => {
     const payload = {
@@ -41,7 +49,7 @@ export default function Home() {
         <div className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
           <div>Bear {bears}</div>
           <div>
-            <button onClick={() => increase()}>increase</button>
+            <StyledButton onClick={() => increase()}>increase</StyledButton>
           </div>
         </div>
         <button onClick={() => handleSubmit()}>login</button>
