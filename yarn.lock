@@ -593,6 +593,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rive-app/canvas@npm:2.31.5":
+  version: 2.31.5
+  resolution: "@rive-app/canvas@npm:2.31.5"
+  checksum: 10c0/3de829a0d7b5d47f5312a0f9fa41d663696cbf85f01d28a1b05c3183412932e957dcc353b68157d4b072b8aa61cf9191e513f24c01ea960fcb259c539302f748
+  languageName: node
+  linkType: hard
+
+"@rive-app/react-canvas@npm:^4.23.3":
+  version: 4.23.3
+  resolution: "@rive-app/react-canvas@npm:4.23.3"
+  dependencies:
+    "@rive-app/canvas": "npm:2.31.5"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
+  checksum: 10c0/1370db8ccd4b67ce0eff6937f73ba0b7aa4f94977f4540aedb8f0872ca2bd4e5c66e58ba1e9fdf1045e267239402853fac95183df6616048a5b2380c15ea2412
+  languageName: node
+  linkType: hard
+
 "@standard-schema/spec@npm:^1.0.0":
   version: 1.0.0
   resolution: "@standard-schema/spec@npm:1.0.0"
@@ -2790,6 +2808,7 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:^2.2.2"
     "@reduxjs/toolkit": "npm:^2.9.0"
+    "@rive-app/react-canvas": "npm:^4.23.3"
     "@tailwindcss/postcss": "npm:^4.1.13"
     "@tanstack/query-core": "npm:^5.86.0"
     "@tanstack/react-query": "npm:^5.86.0"
