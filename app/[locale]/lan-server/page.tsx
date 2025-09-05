@@ -7,7 +7,7 @@ export default async function Page() {
 
   return (
     <div>
-      <p className="red">Current locale: {locale}</p>
+      <p className='red'>Current locale: {locale}</p>
       <p>{t('hello')}</p>
       {/* Both are equivalent: */}
       <p>{t('hello.world')}</p>

@@ -5,7 +5,7 @@
     "clientKind": "git",
     "useIgnoreFile": false
   },
-  
+
   "files": {
     "includes": [
       "app/**/*",
@@ -16,7 +16,7 @@
       "constants/**/*",
       "apis/**/*",
       "locales/**/*"
-      ]
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -29,7 +29,7 @@
         "useImportType": "off"
       },
       "a11y": {
-         "useButtonType": "off"
+        "useButtonType": "off"
       },
       "correctness": {
         "noUnusedVariables": "off",
@@ -39,7 +39,8 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single"
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single"
     }
   },
   "assist": {

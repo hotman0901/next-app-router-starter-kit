@@ -10,8 +10,8 @@
     "env-prod": "env-cmd -f .env.production next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "biome": "biome lint",
+    "check": "biome check",
     "turbopack": "next build --turbopack",
     "precommit": "echo 'pre-commit checks...' && exit 0",
     "release": "standard-version"
