@@ -1,6 +1,5 @@
 import { create } from 'zustand';
-import { immer } from 'zustand/middleware/immer'
-
+import { immer } from 'zustand/middleware/immer';
 
 // 基本寫法
 // interface BearState {
@@ -13,24 +12,22 @@ import { immer } from 'zustand/middleware/immer'
 //   increase: () => set((state) => ({ bears: state.bears + 1 })),
 // }));
 
-
 // 使用 immer 寫法
 type State = {
-  bears: number
-}
+  bears: number;
+};
 
 type Actions = {
-  increase: () => void
-}
+  increase: () => void;
+};
 
 export const useBearStore = create(
   immer<State & Actions>((set) => ({
     bears: 1,
     increase: () => {
       set((state) => {
-        state.bears += 1
-      })
-    }
-  }))
-)
-
+        state.bears += 1;
+      });
+    },
+  })),
+);

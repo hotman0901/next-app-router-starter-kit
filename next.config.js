@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const { withYak } = require("next-yak/withYak");
+
 
 const rewrites = async () => {
   return [
@@ -28,4 +30,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withYak(nextConfig);

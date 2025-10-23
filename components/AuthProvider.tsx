@@ -1,11 +1,15 @@
 'use client';
 import { getCookie } from 'cookies-next';
 import React, { useEffect } from 'react';
-
 import { COOKIES } from '@/constants';
+
 import { useAuthStore } from '@/store/auth';
 
-export default function AuthProvider({ children }: { children: React.ReactNode }) {
+export default function AuthProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   // Getting the token value from a cookie
   const token = getCookie(COOKIES.TOKEN);
   // Getting the setAuthentication function from the authentication store

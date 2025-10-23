@@ -16,7 +16,7 @@ export async function GET() {
       },
       {
         status: 401,
-      }
+      },
     );
   }
 
@@ -39,16 +39,15 @@ export async function GET() {
     if (error instanceof Error) {
       // 只有在 error 是 JS Error 物件時才會執行
       console.error(error.message);
-      
+
       return NextResponse.json(
         {
           message: 'Something went wrong',
         },
         {
           status: 400,
-        }
+        },
       );
     }
-
   }
 }

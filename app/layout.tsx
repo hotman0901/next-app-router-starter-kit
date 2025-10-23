@@ -2,7 +2,6 @@ import './globals.css';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import React from 'react';
 
 import AuthProvider from '@/components/AuthProvider';
 import Providers from '@/utils/provider';
@@ -21,11 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
           <AuthProvider>
-            <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <main className='flex min-h-screen flex-col items-center justify-between p-24'>
               <div>common layout 123</div>
               {children}
             </main>

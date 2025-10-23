@@ -1,13 +1,13 @@
 'use client';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import Image from 'next/image'
+import Image from 'next/image';
 import React from 'react';
 
-import { User } from './types';
+import type { User } from './types';
 
 async function getUsers() {
   return (await fetch('https://jsonplaceholder.typicode.com/users').then(
-    (res) => res.json()
+    (res) => res.json(),
   )) as User[];
 }
 
@@ -49,8 +49,8 @@ export default function ListUsers() {
               <Image
                 src={`https://robohash.org/${user.id}?set=set2&size=180x180`}
                 alt={user.name}
-                width="180"
-                height="180"
+                width='180'
+                height='180'
               />
               <h3>{user.name}</h3>
             </div>

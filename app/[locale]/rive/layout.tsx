@@ -14,10 +14,5 @@ export default function SubLayout(o: {
   const c: { locale: string } = use(params);
   const { locale = 'en' } = c;
 
-  return (
-    <I18nProviderClient locale={locale}>
-      <div>123123</div>
-      {children}
-    </I18nProviderClient>
-  );
+  return <I18nProviderClient locale={locale}>{children}</I18nProviderClient>;
 }
