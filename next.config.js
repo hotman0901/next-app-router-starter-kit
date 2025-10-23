@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-const { withYak } = require("next-yak/withYak");
 
 
 const rewrites = async () => {
@@ -22,12 +21,7 @@ const nextConfig = {
         pathname: '**',
       },
     ],
-  },
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
+  }
 };
 
-module.exports = withYak(nextConfig);
+module.exports = nextConfig;
