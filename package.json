@@ -27,7 +27,7 @@
     "@tanstack/react-query": "^5.90.5",
     "@tanstack/react-query-devtools": "^5.90.2",
     "@tanstack/react-query-next-experimental": "^5.90.2",
-    "axios": "^1.12.2",
+    "axios": "^1.13.0",
     "cookies": "^0.9.1",
     "cookies-next": "^6.1.1",
     "dayjs": "^1.11.18",
@@ -43,8 +43,8 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.7",
-    "@tailwindcss/postcss": "^4.1.15",
+    "@biomejs/biome": "^2.3.1",
+    "@tailwindcss/postcss": "^4.1.16",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
@@ -60,7 +60,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^3.6.2",
     "standard-version": "^9.5.0",
-    "tailwindcss": "^4.1.15",
+    "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3"
   }
 }
