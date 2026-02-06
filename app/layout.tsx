@@ -25,7 +25,7 @@ export default function RootLayout({
         <Providers>
           <AuthProvider>
             <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-              <div>common layout 123</div>
+              {/* <div>common layout 123</div> */}
               {children}
             </main>
           </AuthProvider>
