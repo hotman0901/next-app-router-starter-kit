@@ -10,6 +10,9 @@ const rewrites = async () => {
   ];
 };
 const nextConfig = {
+  experimental: {
+    authInterrupts: true, // Enable the experimental feature
+  },
   rewrites,
   // 必須增加這個設定才能 http 外部 url 的 image
   images: {
