@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.4/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -23,6 +23,9 @@
     "indentStyle": "space"
   },
   "linter": {
+    "domains": {
+      "next": "recommended"
+    },
     "enabled": true,
     "rules": {
       "style": {
@@ -33,7 +36,8 @@
       },
       "correctness": {
         "noUnusedVariables": "off",
-        "noUnusedFunctionParameters": "off"
+        "noUnusedFunctionParameters": "off",
+        "useHookAtTopLevel": "off"
       }
     }
   },
