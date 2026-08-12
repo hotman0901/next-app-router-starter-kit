@@ -1,6 +1,6 @@
 // 'use client';
 
-import styles from "@/styles/notFound.module.scss";
+import styles from '@/styles/notFound.module.scss';
 
 export default function Custom404() {
   return (
