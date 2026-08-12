@@ -1,23 +1,17 @@
 'use client';
-import { ReactNode, use } from 'react';
+import { type ReactNode, use } from 'react';
 
 import { I18nProviderClient } from '@/locales/client';
 
-export default function SubLayout(o: {
+export default function SubLayout({
+  children,
+  params,
+}: {
   children: ReactNode;
-  // biome-ignore lint/suspicious/noExplicitAny: <reason for ignoring>
-  params: any;
+  // Next 16 的 params 是 Promise，用 use() 解開
+  params: Promise<{ locale: string }>;
 }) {
-  const { children, params } = o;
-  // const ln = params?.locale || 'en';
+  const { locale } = use(params);
 
-  const c: { locale: string } = use(params);
-  const { locale = 'en' } = c;
-
-  return (
-    <I18nProviderClient locale={locale}>
-      <div>123123</div>
-      {children}
-    </I18nProviderClient>
-  );
+  return <I18nProviderClient locale={locale}>{children}</I18nProviderClient>;
 }

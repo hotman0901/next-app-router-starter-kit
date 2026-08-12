@@ -1,16 +1,17 @@
 import { cookies } from 'next/headers';
 import { unauthorized } from 'next/navigation';
 import { Suspense } from 'react';
-// import { getCookie } from 'cookies-next';
+
 import { COOKIES } from '@/constants';
 import Counter from './counter';
 import ListUsers from './list-users';
 import Loading from './loading';
 
 export default async function Page() {
-  // server side 取得，用 clinet side 取不到
-  const cookieStore = cookies();
-  const token = (await cookieStore)?.get(COOKIES.TOKEN);
+  // token 是 httpOnly cookie，只能在 server 端讀取
+  const cookieStore = await cookies();
+  const token = cookieStore.get(COOKIES.TOKEN);
+
   if (!token) {
     unauthorized();
   }
