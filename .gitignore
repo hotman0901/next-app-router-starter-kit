@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# swc plugin 快取（平台專屬的建置產物）
+/.swc/
+
 # production
 /build
 

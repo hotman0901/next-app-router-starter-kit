@@ -1,8 +1,7 @@
-import { serialize } from "cookie";
-import { sign } from "jsonwebtoken";
-import { NextResponse } from "next/server";
+import { sign } from 'jsonwebtoken';
+import { NextResponse } from 'next/server';
 
-import { COOKIES } from "@/constants";
+import { COOKIES } from '@/constants';
 
 const MAX_AGE = 60 * 60 * 24 * 30; // days;
 
@@ -11,10 +10,10 @@ export async function POST(request: Request) {
 
   const { username, password } = body;
 
-  if (username !== "admin" || password !== "admin") {
+  if (username !== 'admin' || password !== 'admin') {
     return NextResponse.json(
       {
-        message: "Unauthorized",
+        message: 'Unauthorized',
       },
       {
         status: 401,
@@ -22,37 +21,28 @@ export async function POST(request: Request) {
     );
   }
 
-  console.log("@@@@ login");
+  const secret = process.env.JWT_SECRET;
 
-  // Always check this
-  const secret = process.env.JWT_SECRET || "";
-  console.log("secret:", secret);
+  // 沒有 secret 就不簽章，避免用空字串簽出人人可偽造的 token
+  if (!secret) {
+    return NextResponse.json(
+      { message: 'JWT_SECRET is not configured' },
+      { status: 500 },
+    );
+  }
 
-  const token = sign(
-    {
-      username,
-    },
-    secret,
-    {
-      expiresIn: MAX_AGE,
-    },
-  );
+  const token = sign({ username }, secret, { expiresIn: MAX_AGE });
 
-  // 設置 cookies
-  const seralized = serialize(COOKIES.TOKEN, token, {
+  const response = NextResponse.json({ message: 'Authenticated!' });
+
+  // 用 Next 內建的 cookies API，不需要額外的 cookie 套件
+  response.cookies.set(COOKIES.TOKEN, token, {
     httpOnly: true, // 設定 true 就不能使 client 端取得
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
     maxAge: MAX_AGE,
-    path: "/",
+    path: '/',
   });
 
-  const response = {
-    message: "Authenticated!",
-  };
-
-  return new Response(JSON.stringify(response), {
-    status: 200,
-    headers: { "Set-Cookie": seralized },
-  });
+  return response;
 }

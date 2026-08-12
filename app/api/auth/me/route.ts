@@ -1,55 +1,33 @@
-import { verify } from "jsonwebtoken";
-import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
+import { verify } from 'jsonwebtoken';
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
-import { COOKIES } from "@/constants";
+import { COOKIES } from '@/constants';
 
 export async function GET() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
-  const token = (await cookieStore)?.get(COOKIES.TOKEN);
+  const token = cookieStore.get(COOKIES.TOKEN);
 
   if (!token) {
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+  }
+
+  const secret = process.env.JWT_SECRET;
+
+  if (!secret) {
     return NextResponse.json(
-      {
-        message: "Unauthorized",
-      },
-      {
-        status: 401,
-      },
+      { message: 'JWT_SECRET is not configured' },
+      { status: 500 },
     );
   }
 
-  console.log("@@@ login me");
-
-  const { value } = token;
-
-  // Always check this
-  const secret = process.env.JWT_SECRET || "";
-
   try {
-    verify(value, secret);
-
-    const response = {
-      user: "Super Top Secret User",
-    };
-
-    return new Response(JSON.stringify(response), {
-      status: 200,
-    });
-  } catch (error) {
-    if (error instanceof Error) {
-      // 只有在 error 是 JS Error 物件時才會執行
-      console.error(error.message);
-
-      return NextResponse.json(
-        {
-          message: "Something went wrong",
-        },
-        {
-          status: 400,
-        },
-      );
-    }
+    verify(token.value, secret);
+  } catch {
+    // token 過期或被竄改，一律視為未登入
+    return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
   }
+
+  return NextResponse.json({ user: 'Super Top Secret User' });
 }

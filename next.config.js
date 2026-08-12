@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 
+const { withYak } = require('next-yak/withYak');
 
 const rewrites = async () => {
   return [
@@ -27,4 +28,5 @@ const nextConfig = {
   }
 };
 
-module.exports = nextConfig;
+// next-yak 是 build-time transform，必須包在這裡才會編譯 styled 樣式
+module.exports = withYak(nextConfig);

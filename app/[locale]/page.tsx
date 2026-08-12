@@ -1,12 +1,13 @@
 'use client';
 
+import { useQueryClient } from '@tanstack/react-query';
 import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { styled } from 'next-yak';
 
 import Child from '@/components/Count';
-import { API } from '@/constants';
+import { API, QUERY_KEYS } from '@/constants';
 import { useAuthStore } from '@/store/auth';
 import { useBearStore } from '@/store/count';
 
@@ -21,22 +22,33 @@ const StyledButton = styled.button`
 export default function Home() {
   const bears = useBearStore((state) => state.bears);
   const increase = useBearStore((state) => state.increase);
-  const setAuth = useAuthStore((state) => state.setAuthentication);
   const isAuth = useAuthStore((state) => state.authenticated);
   const { push } = useRouter();
+  const queryClient = useQueryClient();
 
-  const secret = process.env.NEXT_PUBLIC_JWT || '';
-
-  const handleSubmit = async () => {
+  const handleLogin = async () => {
     const payload = {
       username: 'admin',
       password: 'admin',
     };
 
     try {
-      const { data } = await axios.post(API.LOGIN, payload);
-      console.log(JSON.stringify(data));
+      await axios.post(API.LOGIN, payload);
+      // cookie 換新了，讓 AuthProvider 重新向 server 確認登入狀態
+      await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ME });
       push('/dashboard');
+    } catch (e) {
+      const error = e as AxiosError;
+      alert(error.message);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(API.LOGOUT);
+      await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ME });
+      // 留在首頁，只是狀態變回未登入
+      push('/');
     } catch (e) {
       const error = e as AxiosError;
       alert(error.message);
@@ -52,9 +64,10 @@ export default function Home() {
             <StyledButton onClick={() => increase()}>increase</StyledButton>
           </div>
         </div>
-        <button onClick={() => handleSubmit()}>login</button>
+        <button onClick={isAuth ? handleLogout : handleLogin}>
+          {isAuth ? 'logout' : 'login'}
+        </button>
         <div>isAuth: {String(isAuth)}</div>
-        <button onClick={() => setAuth(!isAuth)}>setAuth</button>
         <Child />
         <div className='fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none'>
           <a

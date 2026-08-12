@@ -1,44 +1,30 @@
-import { cookies } from 'next/headers';
 import type { NextFetchEvent, NextMiddleware, NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
-import { COOKIES } from '@/constants';
+import { COOKIES, PROTECTED_URL } from '@/constants';
 
-// export default function middleware(req) {
-//   const token = req.cookies.token
+const PROTECTED_PATHS = Object.values(PROTECTED_URL);
 
-//   // if (userStatus !== requiredStatus) {
-//   //   if (userStatus === 'guest') {
-//   //     return NextResponse.redirect('/login')
-//   //   } else {
-//   //     return NextResponse.redirect('/error')
-//   //   }
-//   }
-// }
-
-// export const withLogging: MiddlewareFactory = (next) => {
-//   return async (request: NextRequest, _next: NextFetchEvent) => {
-//     console.log("Log some data here", request.nextUrl.pathname);
-//     return next(request, _next);
-//   };
-// };
+// 路徑會帶 locale 前綴（/en/dashboard），比對前先去掉
+function stripLocale(pathname: string) {
+  return pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
+}
 
 export default function withAuth(middleware: NextMiddleware) {
   return async (request: NextRequest, event: NextFetchEvent) => {
-    const cookieStore = cookies();
-    // const locale = cookieStore.get(COOKIES.LOCALE);
-    // console.log('locale:', locale)
-    const token = (await cookieStore).get(COOKIES.TOKEN);
-    console.log('🚀 ~ return ~ token:', token);
-    // console.log('token:', token?.value)
-    // console.log('token:', token)
-    // console.log('locale =>',  request.nextUrl['locale'])
-    // console.log('locale =>',  request.nextUrl)
-    // console.log('token:', token?.value)
+    const pathname = stripLocale(request.nextUrl.pathname);
+    const isProtected = PROTECTED_PATHS.some(
+      (path) => pathname === path || pathname.startsWith(`${path}/`),
+    );
 
-    // const checkUrl = locale?.value + request.nextUrl.pathname
-    // console.log('checkUrl:', checkUrl)
-    // console.log("path => ", request.nextUrl.pathname)
-    // console.log('middleware1 =>', request.url)
+    // middleware 只檢查 cookie 是否存在，不驗簽章：
+    // Edge runtime 不支援 jsonwebtoken，真正的驗證留在 route handler / server component
+    if (isProtected && !request.cookies.get(COOKIES.TOKEN)) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/';
+      return NextResponse.redirect(url);
+    }
+
     return middleware(request, event);
   };
 }

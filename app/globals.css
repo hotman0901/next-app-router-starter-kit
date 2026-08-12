@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Tailwind v4 是 CSS-first，不會自動讀 tailwind.config.ts，必須用 @config 明確載入 */
+@config "../tailwind.config.ts";
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

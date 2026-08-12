@@ -7,6 +7,12 @@ export const COOKIES = {
 
 export const API = {
   LOGIN: '/api/auth/login',
+  LOGOUT: '/api/auth/logout',
+  ME: '/api/auth/me',
+};
+
+export const QUERY_KEYS = {
+  ME: ['auth', 'me'] as const,
 };
 
 export const PROTECTED_URL = {
