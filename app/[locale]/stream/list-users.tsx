@@ -3,20 +3,14 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import React from 'react';
 
-import type { User } from './types';
-
-async function getUsers() {
-  return (await fetch('https://jsonplaceholder.typicode.com/users').then(
-    (res) => res.json(),
-  )) as User[];
-}
+import { getUsers } from '@/apis/user';
+import { QUERY_KEYS } from '@/constants';
 
 export default function ListUsers() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [count, setCount] = React.useState(0);
-  const { data } = useSuspenseQuery<User[]>({
-    queryKey: ['users'],
-    queryFn: () => getUsers(),
+  const { data } = useSuspenseQuery({
+    queryKey: QUERY_KEYS.USERS,
+    queryFn: getUsers,
     staleTime: 5 * 1000,
   });
 

@@ -1,8 +1,8 @@
-import { User } from '@/types/types';
-import request from '@/utils/request';
+import type { User } from '@/types/types';
+import { http } from '@/utils/fetcher';
 
-export async function getUsers() {
-  const res = await request(`https://jsonplaceholder.typicode.com/users/`);
-  const users = (await res.json()) as User[];
-  return users;
+const USERS_URL = 'https://jsonplaceholder.typicode.com/users';
+
+export function getUsers() {
+  return http<User[]>(USERS_URL);
 }

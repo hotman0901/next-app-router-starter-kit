@@ -13,6 +13,7 @@ export const API = {
 
 export const QUERY_KEYS = {
   ME: ['auth', 'me'] as const,
+  USERS: ['users'] as const,
 };
 
 export const PROTECTED_URL = {

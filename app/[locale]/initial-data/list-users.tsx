@@ -4,27 +4,15 @@ import Image from 'next/image';
 import React from 'react';
 
 import { getUsers } from '@/apis/user';
-import { User } from '@/types/types';
-// import request from '@/utils/request';
-
-// async function getUsers() {
-//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
-//   const users = (await res.json()) as User[];
-
-//   const ff = await request('https://jsonplaceholder.typicode.com/users')
-//   console.log('ff:', ff.json())
-
-//   return users;
-// }
+import { QUERY_KEYS } from '@/constants';
+import type { User } from '@/types/types';
 
 export default function ListUsers({ users }: { users: User[] }) {
   const [count, setCount] = React.useState(0);
 
   const { data } = useQuery({
-    queryKey: ['users'],
-    queryFn: () => getUsers(),
-    // cacheTime: 0,
-    // staleTime: 0,
+    queryKey: QUERY_KEYS.USERS,
+    queryFn: getUsers,
     initialData: users,
   });
 

@@ -4,20 +4,15 @@ import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import React from 'react';
 
-import { User } from './types';
-
-async function getUsers() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users');
-  const users = (await res.json()) as User[];
-  return users;
-}
+import { getUsers } from '@/apis/user';
+import { QUERY_KEYS } from '@/constants';
 
 export default function ListUsers() {
   const [count, setCount] = React.useState(0);
 
   const { data } = useQuery({
-    queryKey: ['users'],
-    queryFn: () => getUsers(),
+    queryKey: QUERY_KEYS.USERS,
+    queryFn: getUsers,
   });
 
   return (

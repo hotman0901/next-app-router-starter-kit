@@ -1,7 +1,6 @@
 'use client';
 
 import { useQueryClient } from '@tanstack/react-query';
-import axios, { AxiosError } from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { styled } from 'next-yak';
@@ -10,6 +9,7 @@ import Child from '@/components/Count';
 import { API, QUERY_KEYS } from '@/constants';
 import { useAuthStore } from '@/store/auth';
 import { useBearStore } from '@/store/count';
+import { FetchError, http } from '@/utils/fetcher';
 
 const StyledButton = styled.button`
   color: #333;
@@ -33,25 +33,28 @@ export default function Home() {
     };
 
     try {
-      await axios.post(API.LOGIN, payload);
+      await http(API.LOGIN, { method: 'POST', body: payload });
       // cookie 換新了，讓 AuthProvider 重新向 server 確認登入狀態
       await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ME });
       push('/dashboard');
     } catch (e) {
-      const error = e as AxiosError;
-      alert(error.message);
+      // FetchError 的 data 是 server 回的 JSON body
+      const message =
+        e instanceof FetchError ? (e.data?.message ?? e.message) : String(e);
+      alert(message);
     }
   };
 
   const handleLogout = async () => {
     try {
-      await axios.post(API.LOGOUT);
+      await http(API.LOGOUT, { method: 'POST' });
       await queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ME });
       // 留在首頁，只是狀態變回未登入
       push('/');
     } catch (e) {
-      const error = e as AxiosError;
-      alert(error.message);
+      const message =
+        e instanceof FetchError ? (e.data?.message ?? e.message) : String(e);
+      alert(message);
     }
   };
 

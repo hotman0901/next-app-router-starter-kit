@@ -4,17 +4,19 @@ import React, { useEffect } from 'react';
 
 import { API, QUERY_KEYS } from '@/constants';
 import { useAuthStore } from '@/store/auth';
+import { FetchError, http } from '@/utils/fetcher';
 
 // token cookie 是 httpOnly，client 端讀不到，
 // 只能透過 /api/auth/me 由 server 回報登入狀態
 async function fetchMe(): Promise<string | null> {
-  const res = await fetch(API.ME);
-
-  if (res.status === 401) return null;
-  if (!res.ok) throw new Error(`Failed to fetch session: ${res.status}`);
-
-  const { user } = (await res.json()) as { user: string };
-  return user;
+  try {
+    const { user } = await http<{ user: string }>(API.ME);
+    return user;
+  } catch (error) {
+    // 401 是「未登入」這個正常狀態，不該當成錯誤往上拋
+    if (error instanceof FetchError && error.status === 401) return null;
+    throw error;
+  }
 }
 
 export default function AuthProvider({
